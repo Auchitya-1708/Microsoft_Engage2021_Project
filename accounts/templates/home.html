@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2 style="color:#6e2a02e8;font-weight:bold">Welcome to Career Path!</h2>
+<hr style=" border-width: 2px;">
+<br>
+<img src="{% static 'accounts/img/onlylogo.png' %}" style="float:left;width:27%;margin-right:35px;border-radius:10%">
+<p style="color:black;font-weight:bold;font-size:15.4px;font-family:Georgia, serif;">
+    This platform is to keep you updated regarding all the companies that come to the institute for the recruitment drives.The links to apply will also be provided through the posts by TPO or the members of TnP Cell.</p>
+       <p style="color:black;font-weight:bold;font-size:15.4px;font-family:Georgia, serif">
+    The information and links regarding the offline drives will also be updated for the students.The students can comment and also save the posts for quick reference.  
+</p>
+<br>
+<h4 style="color:#a14901">Please Login to view Posts </h4>
+<a href="{% url 'accounts:login' %}" class="btn btn-primary"><i class="glyphicon glyphicon-user" style="font-weight:bold"></i> Login</a>
+{% endblock %}

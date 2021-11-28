@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+    <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="card">
+                <div class="card-header text-black">
+                  <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;">Registration</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                       <div class="col-lg-6">
+                        <h3 style="font-family:Georgia, 'Times New Roman', Times, serif;">For Students</h3>
+                        <p style="font-size:15.4px;font-family: Georgia, 'Times New Roman', Times, serif;">
+                        Join and stay updated on all the placement information.</p>
+                        
+                        <a type="button" class="btn btn-block btn-primary" href="{% url 'accounts:student_register' %}">For Students</a>
+                       </div>
+                       <div class="col-lg-6">
+                         <h3 style="font-family:Georgia, 'Times New Roman', Times, serif;">For TnP Cell</h3>
+                         <p style="font-size:15.4px;font-family: Georgia, 'Times New Roman', Times, serif;">Only for the TPO and the members of Training and Placement cell.</p>
+                        <a type="button" class="btn btn-block btn-primary" href="{% url 'accounts:faculty_register' %}">For TnP Cell</a>
+                       </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+{% endblock %}

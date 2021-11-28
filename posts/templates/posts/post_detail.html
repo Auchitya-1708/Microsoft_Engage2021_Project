@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="padding: 10px 20px;margin-bottom: 20px;">
+  <table class="table mb-0">
+      <div style="padding-bottom: 1px;margin-bottom: 15px;border-bottom: 1px solid #e3e3e3" >
+        <p><a href=" {% url 'posts:user-posts' post.user.pk %} " style="color:#944300;font-size:25px;font-family:Georgia, serif;">Posted by: {{post.user}}</a> <span class="text-muted" style="float:right;font-size:15px">{{post.created_at }}</span></p>
+      </div>
+      <h3 style="color: #8f3400;font-family:Georgia, serif;font-weight:bold;font-size:28px" class="align-middle"><u>{{ post.title }}</u>
+        {% if user.is_authenticated and user == post.user %}
+        <!-- <a href="{% url 'posts:update' post.pk %}" class="btn btn-dark" style="margin-top:8px;float:right"><span class="glyphicon glyphicon-pencil"></span> </a> -->
+        <!-- <a href="{% url 'posts:update' post.pk %}" class="btn btn-secondary" style="margin-top:8px;float:right"><span class="glyphicon glyphicon-pencil"></span> </a> -->
+        <a href="{% url 'posts:update' post.pk %}" class="btn btn-lg" style="margin-top:8px;float:right"><span class="glyphicon glyphicon-pencil"></span> </a>
+
+        {% endif %}
+      </h3>
+      <p>{{post.message|safe}}</p>
+      <a href="/media/{{post.pdf}}">{{post.pdf}}</a>
+
+  </table>
+</div>
+<div id="favourite-section" style="float:right;">
+  {% if is_favourite %}
+  <a href="{% url 'posts:favourite_post' pk=post.id %}">
+    <!-- <button class="btn btn-info btn-sm">unsave</button> -->
+    <button class="btn"><span class="glyphicon glyphicon-bookmark"></span> Unsave</button>
+  </a>
+  {% else %}
+  <a href="{% url 'posts:favourite_post' pk=post.id %}">
+    <!-- <button class="btn btn-success btn-sm">save</button> -->
+    <button class="btn btn-info"><span class="glyphicon glyphicon-bookmark"></span> Save</button>
+  </a>
+  {% endif %}
+</div>
+
+
+{% endblock %}
+
+
+<!-- when we are dealing with DetailView it expects the context of this template
+ to be object-->
